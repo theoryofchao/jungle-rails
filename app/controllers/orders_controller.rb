@@ -2,6 +2,15 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+    
+   
+    if @order.email != session[:user_email]
+      redirect_to :root
+    end
+    @items = LineItem.select('*').joins(:product).where('order_id' => params[:id])
+    p 'test'
+    p @items
+    p 'test'
   end
 
   def create

@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def new
+    if session[:user_id]
+      redirect_to :root
+    end
   end
 
   def create
@@ -15,6 +18,9 @@ class SessionsController < ApplicationController
       # Save the user id inside the browser cookie. This is how we keep the user 
       # logged in when they navigate around our website.
       session[:user_id] = user.id
+      session[:user_email] = user.email
+      session[:user_first_name] = user.first_name
+      session[:user_last_name] = user.last_name
       return redirect_to :root
     else
     # If user's login doesn't work, send them back to the login form.
