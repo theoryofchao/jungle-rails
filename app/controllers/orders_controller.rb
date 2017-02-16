@@ -3,22 +3,24 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
     
-   
     if @order.email != session[:user_email]
       redirect_to :root
     end
+
     @items = LineItem.select('*').joins(:product).where('order_id' => params[:id])
-    p 'test'
-    p @items
-    p 'test'
   end
 
   def create
     charge = perform_stripe_charge
     order  = create_order(charge)
 
+
     if order.valid?
+      items = LineItem.select('*').joins(:product).where('order_id' => order.id)    
+      ReceiptMailer.receipt_email(order, items).deliver_now
+
       empty_cart!
+
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first

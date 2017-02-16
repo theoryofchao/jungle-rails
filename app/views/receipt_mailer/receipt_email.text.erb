@@ -1,0 +1,10 @@
+<%= @order.id %>
+
+<%= @order.email %>
+
+<% @items.each do |item| %>
+  <%= item.name %>
+  <%= item.item_price.cents %>
+  <%= item.quantity %>
+  <%= item.total_price_cents %>
+<% end %>

@@ -5,9 +5,11 @@
   </header>
 
   <div class="order-summary jumbotron">
-    <h4>Hi <%= session[:user_email] %>, Thank you for your order!</h4>
-    
-    <div class="panel panel-default items">
+    <h4>Thank you for your order!</h4>
+    <h4>Your receipt will be sent to <%= @order.email %>.</h4>
+  </div>
+
+  <div class="panel panel-default items">
       <table class="table table-bordered">
         <thead>
           <tr>
@@ -35,8 +37,6 @@
         </tfoot>
       </table>
     </div>
-
-  </div>
 
   <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
