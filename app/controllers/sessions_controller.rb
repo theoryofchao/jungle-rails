@@ -30,6 +30,9 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:user_email] = nil
+    session[:user_first_name] = nil
+    session[:user_last_name] = nil
     redirect_to '/'
   end
 

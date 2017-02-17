@@ -132,5 +132,32 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+User.create( first_name: 'Roger',last_name: 'Chao', email: 'roger.ti.chao@gmail.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '1',last_name: '1', email: '1@1.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '2',last_name: '2', email: '2@2.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '3',last_name: '3', email: '3@3.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '4',last_name: '4', email: '4@4.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '5',last_name: '5', email: '5@5.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+User.create( first_name: '6',last_name: '6', email: '6@6.com', password_digest: '$2a$10$ZnA4s8Ds0W1ugsegUWylEehDfbStlCRyP7hE04MyRi5HyPyujIJGa')
+
+## REVIEWS
+Review.create( product_id: 1, user_id: 1, description: 'ba', rating: 1 )
+Review.create( product_id: 1, user_id: 2, description: 'a', rating: 3 )
+Review.create( product_id: 2, user_id: 3, description: 'b', rating: 4 )
+Review.create( product_id: 2, user_id: 4, description: 'c', rating: 5 )
+Review.create( product_id: 3, user_id: 5, description: 'd', rating: 2 )
+Review.create( product_id: 3, user_id: 6, description: 'e', rating: 3 )
+Review.create( product_id: 3, user_id: 6, description: 'f', rating: 4 )
+Review.create( product_id: 4, user_id: 5, description: 'g', rating: 5 )
+Review.create( product_id: 5, user_id: 4, description: 'h', rating: 1 )
+Review.create( product_id: 6, user_id: 3, description: 'i', rating: 2 )
+Review.create( product_id: 7, user_id: 1, description: 'j', rating: 3 )
+Review.create( product_id: 8, user_id: 2, description: 'k', rating: 4 )
+Review.create( product_id: 9, user_id: 2, description: 'l', rating: 5 )
+Review.create( product_id: 10, user_id: 1, description: 'm', rating: 2 )
+Review.create( product_id: 11, user_id: 1, description: 'n', rating: 1 )
+
+
+
 
 puts "DONE!"
