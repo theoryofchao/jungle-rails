@@ -27,9 +27,22 @@
     </div>
 
     <div class="row">
-        <% @reviews.each do |review| %>
-          <%= render 'review', review: review %>
-        <% end %>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Reviewer</th>
+            <th>Rating</th>
+            <th colspan="8">Description</th>
+          </tr>
+        </thead>
+        <tbody>      
+
+          <% @reviews.each do |review| %>
+            <%= render 'review', review: review %>
+          <% end %>
+
+        </tbody>
+      </table>
     </div>
 
   </article>
