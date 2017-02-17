@@ -28,15 +28,29 @@
       </div>
     </div>
 
-    <div class="row">
-      <%= form_for [@product, @new_review] do |f| %>
-        <%= f.hidden_field :product_id, :value => @product.id %>
-        <%= f.hidden_field :user_id, :value => session[:user_id] %>
-        <%= f.text_area :description %>
-        <%= f.select :rating, [[1, 1],[2,2],[3,3],[4,4],[5,5]] %>
-        <%= f.submit "Post Comment" %>
-      <% end %>
-    </div>
+    <% if session[:user_id] && @my_review == nil %>
+      <div class="row form-group rating">
+        <%= form_for [@product, @new_review] do |f| %>
+          <%= f.hidden_field :product_id, :value => @product.id %>
+          <%= f.hidden_field :user_id, :value => session[:user_id] %>
+          <div>
+          <%= f.label :description %>
+          <%= f.text_area :description, class: 'form-control' %>
+          </div>
+          <div>
+          <%= f.label :rating %> 
+          <%= f.select :rating, [[1, 1],[2,2],[3,3],[4,4],[5,5]] %>
+          </div>
+          <div>
+          <%= f.submit "Post Comment", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="delete_review">
+        <%= link_to "Delete My Review", [@product, @my_review], method: :delete, data: { confirm: "Are you sure?" }%>
+      </div>
+    <% end %>
 
     <div class="row">
       <table class="table table-bordered">

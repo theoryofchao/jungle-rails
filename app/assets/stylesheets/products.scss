@@ -72,9 +72,20 @@ main section.categories-show {
           opacity: 1.0;
         }
       }
-
     }
   }
+}
+
+.rating {
+  margin: 1em 0 2em;
+
+  form > div {
+    margin: 0.5em 0;
+  }
+}
+
+.delete_review {
+  margin: 1em 0;
 }
 
 main section.products-show {
