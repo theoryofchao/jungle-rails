@@ -17,6 +17,7 @@ class Admin::ProductsController < ApplicationController
       redirect_to [:admin, :products], notice: 'Product created!'
     else
       render :new
+      return false
     end
   end
 
