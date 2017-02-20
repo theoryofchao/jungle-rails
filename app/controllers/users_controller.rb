@@ -17,6 +17,8 @@ class UsersController < ApplicationController
       redirect_to :root      
     elsif (user_params[:password] != user_params[:password_confirmation])
       redirect_to :new_user, notice: 'Passwords does not match.'
+    elsif (user_params[:password].length < 8)
+      redirect_to :new_user, notice: 'Password needs to be 8 characters minimum.'
     else
       redirect_to :new_user, notice: 'Email has already been used.'
     end

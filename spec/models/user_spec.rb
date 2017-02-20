@@ -41,6 +41,16 @@ RSpec.describe User, type: :model do
     user = User.new(first_name: 'firstname', last_name: 'last_name', email: "first@last.com", password: 'password', password_confirmation: 'password')
     expect(user.save).to be_truthy
   end
+
+  it "should have 8 characters minimum password (test 7 characters)" do
+    user = User.new(first_name: 'firstname', last_name: 'lastname', email: "first@last.com", password: 'passwor', password_confirmation: 'passwor')
+    expect(user.save).to be_falsey
+  end
+
+  it "should have 8 characters minimum password (test 8 characters" do
+    user = User.new(first_name: 'firstname', last_name: 'lastname', email: "first@last.com", password: 'password', password_confirmation: 'password')
+    expect(user.save).to be_truthy
+  end
 end
 
 

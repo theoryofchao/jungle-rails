@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, :password_digest, presence: true
   validates :email, uniqueness: true
+  validates :password, :confirmation => true,
+                       :length => {:within => 8..40},
+                       :on => :create
   has_many :reviews
   has_secure_password
 
