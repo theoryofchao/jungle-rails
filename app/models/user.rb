@@ -9,11 +9,24 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_secure_password
 
+ def self.authenticate_with_credentials(email, password)
+    email.downcase!
+    user = User.find_by_email(email)
+    password.gsub!(/\s+/, "")
+    if user && user.authenticate(password)
+      return user
+    else
+      return nil
+    end
+  end
+
   private
     def downcase_stuff
       if (self.email)
         self.email.downcase!
       end
     end
+
+   
 
 end
