@@ -3,9 +3,6 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   before(:each) do
     @product = Product.new
-    @category = Category.new
-
-
   end
 
   describe 'initialized in before(:each)' do
