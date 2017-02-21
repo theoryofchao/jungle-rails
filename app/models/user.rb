@@ -26,7 +26,4 @@ class User < ActiveRecord::Base
         self.email.downcase!
       end
     end
-
-   
-
 end
