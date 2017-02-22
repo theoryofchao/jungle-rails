@@ -7,7 +7,9 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find params[:id]
     @reviews = Review.select('*').joins(:user).where("product_id =  #{params[:id]}").order(updated_at: :asc)
-    @my_review = Review.where("product_id = #{params[:id]} and user_id = #{current_user.id}").first
+    if session[:user_id]
+      @my_review = Review.where("product_id = #{params[:id]} and user_id = #{current_user.id}").first
+    end
     @new_review = Review.new
   end
 
